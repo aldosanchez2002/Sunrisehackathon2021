@@ -1,14 +1,4 @@
 from main import makeGM
-def getValids(GM):
-    valids=[]
-    for a in range(0,len(GM[0])):
-        for b in range(0, len(GM[1])):
-            for c in range(0, len(GM[2])):
-                for d in range(0, len(GM[3])):
-                    if isValid([GM[0][a],GM[1][b],GM[2][c],GM[3][d]]):
-                        valids.append([GM[0][a],GM[1][b],GM[2][c],GM[3][d]])
-    return valids
-
 def isValid(arrOfCourses):
     gms=[]
     temp = arrOfCourses[0]
@@ -25,6 +15,16 @@ def isValid(arrOfCourses):
         if gms[x].getEnd()>=gms[x+1].getStart():
             return False
     return True
+
+def getValids(GM):
+    valids=[]
+    for a in range(0,len(GM[0])):
+        for b in range(0, len(GM[1])):
+            for c in range(0, len(GM[2])):
+                for d in range(0, len(GM[3])):
+                    if isValid([GM[0][a],GM[1][b],GM[2][c],GM[3][d]]):
+                        valids.append([GM[0][a],GM[1][b],GM[2][c],GM[3][d]])
+    return valids
 
 def getBest(valids):
     tempMax=valids[0]
