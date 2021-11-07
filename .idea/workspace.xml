@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d830b303-d74c-4014-af49-3ca5ad186525" name="Changes" comment="merged all files updated details try 4" />
+    <list default="true" id="d830b303-d74c-4014-af49-3ca5ad186525" name="Changes" comment="merged all files updated details try 5" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636266778222</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="merged all files updated details try 5">
+      <created>1636269139045</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636269139045</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,6 +134,7 @@
     <MESSAGE value="merged all files updated details try 2" />
     <MESSAGE value="merged all files updated details try 3" />
     <MESSAGE value="merged all files updated details try 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="merged all files updated details try 4" />
+    <MESSAGE value="merged all files updated details try 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged all files updated details try 5" />
   </component>
 </project>
