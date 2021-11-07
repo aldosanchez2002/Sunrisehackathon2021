@@ -1,7 +1,7 @@
 class Course:
     courseID= "CS2401"
     teacher = "Dan DeBlasio"
-    RMPRating = 1.01
+    RMPRating = -10
     Start = 2355
     End = 2400
     Days = ['M', 'T']
@@ -79,15 +79,15 @@ class Course:
         print
 
     def displaySolution(self):
-        print(" Course: " + str(self.courseID)+"   CRN: " + str(self.CRN))
+        print(str(self.RMPRating)+" Course: " + str(self.courseID)+"   CRN: " + str(self.CRN)+"   Start: "+str(self.Start)+"   End: "+str(self.End)+"     "+str(self.Days[0]))
 
 def makeGM():
 
     c1 = Course()
-    c1.setAll("CS2302","Diego Aguirre",5,20130,20250,['M','W'],True,"In-Person",21736)
+    c1.setAll("CS2302","Diego Aguirre",5,1330,1450,['M','W'],True,"In-Person",21736)
     c1.display()
     c2 = Course()
-    c2.setAll("CS2302","Olac Fuentes",3.4,21200,20120,['T','R'],True,"In-Person",25686)
+    c2.setAll("CS2302","Olac Fuentes",3.4,1200,1320,['T','R'],True,"In-Person",25686)
     c2.display()
     c3 = Course()
     c3.setAll("CS2302"	,	"Olac Fuentes"	,	3.4	,	1330	,	1450	,	['T','R']	,	True	,	"In-Person"	,	27090)
@@ -119,7 +119,7 @@ def makeGM():
     c11.setAll("EE2169"	,	"TBA"	,	-1	,	730	,	1020	,	['R']	,	True	,	"ONLINE"	,	28762)
     c11.display()
     c12 = Course()
-    c12.setAll("EE2169"	,	"TBA"	,	-1	,	1030	,	1420	,	['T']	,	True	,	"ONLINE"	,	25554)
+    c12.setAll("EE2169"	,	"TBA"	,	-1	,	1030	,	1320	,	['T']	,	True	,	"ONLINE"	,	25554)
     c12.display()
     c13 = Course()
     ee1=[c11,c12]
@@ -139,20 +139,41 @@ def makeGM():
     return GM
 
 def isValid(arrOfCourses):
-    gms=[]
-    temp = arrOfCourses[0]
-    temp.display()
-    while len(arrOfCourses)>0:
-        for x in range(0,len(arrOfCourses)-1):
-            if arrOfCourses[x].getStart() < temp.getStart():
-                temp=arrOfCourses[x]
-        gms.append(arrOfCourses[x])
-        temp = arrOfCourses[0]
-        arrOfCourses.remove(temp)
-
-    for x in range(len(gms)-2):
-        if gms[x].getEnd()>=gms[x+1].getStart():
-            return False
+    monday=[]
+    for x in arrOfCourses:
+        if x.Days.__contains__('M'):
+            monday.append(x)
+    tuesday = []
+    for x in arrOfCourses:
+        if x.Days.__contains__('T'):
+            tuesday.append(x)
+    wednesday = []
+    for x in arrOfCourses:
+        if x.Days.__contains__('W'):
+            wednesday.append(x)
+    thursday = []
+    for x in arrOfCourses:
+        if x.Days.__contains__('R'):
+            thursday.append(x)
+    friday = []
+    for x in arrOfCourses:
+        if x.Days.__contains__('F'):
+           friday.append(x)
+    week = [monday,tuesday,wednesday,thursday,friday]
+    temp=Course()
+    for d in week:
+        temp = Course()
+        gms =[]
+        while len(d)>0:
+            for x in range(0,len(d)-1):
+                if d[x].getStart() < temp.getStart():
+                    temp=d[x]
+            gms.append(temp)
+            temp = d[0]
+            d.remove(temp)
+        for x in range(0,len(gms)-2):
+            if gms[x].getEnd() >= gms[x+1].getStart():
+                return False
     return True
 
 def getValids(GM):
@@ -166,7 +187,7 @@ def getValids(GM):
     return valids
 
 def getBest(valids):
-    tempMax=[Course(),Course()]
+    tempMax=[]
     for c in valids:
         if sumRating(c)>sumRating(tempMax):
             tempMax = c
@@ -180,8 +201,10 @@ def sumRating(c):
 
 def getFinal():
     valids=getValids(makeGM())
+    print len(valids)
     bestChoice =getBest(valids)
     print("RESULT")
+    print(sumRating(bestChoice))
     for c in bestChoice:
         c.displaySolution()
     return bestChoice
