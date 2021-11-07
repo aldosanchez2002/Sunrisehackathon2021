@@ -1,9 +1,9 @@
 class Course:
     courseID= "CS2401"
     teacher = "Dan DeBlasio"
-    RMPRating = 5.0
-    Start = 11001
-    End = 01352
+    RMPRating = 1.01
+    Start = 2355
+    End = 2400
     Days = ['M', 'T']
     ADAAccess = False;
     lecture = '0'
@@ -133,6 +133,8 @@ def makeGM():
     GM=[cs,math,ee1,ee2]
     print
     print("////////////////////////////")
+    print("////////////////////////////")
+    print("////////////////////////////")
     print
     return GM
 
@@ -164,7 +166,7 @@ def getValids(GM):
     return valids
 
 def getBest(valids):
-    tempMax=valids[0]
+    tempMax=[Course(),Course()]
     for c in valids:
         if sumRating(c)>sumRating(tempMax):
             tempMax = c
@@ -183,3 +185,5 @@ def getFinal():
     for c in bestChoice:
         c.displaySolution()
     return bestChoice
+if __name__ == '__main__':
+    getFinal()

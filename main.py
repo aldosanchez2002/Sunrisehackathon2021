@@ -1,5 +1,4 @@
 def makeGM():
-
     c1 = Course()
     c1.setAll("CS2302","Diego Aguirre",5,20130,20250,['M','W'],True,"In-Person",21736)
     c1.display()
@@ -99,7 +98,6 @@ def getFinal():
     return bestChoice
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    bestRated.getFinal()
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
