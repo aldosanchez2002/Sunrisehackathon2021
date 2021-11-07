@@ -131,11 +131,6 @@ def makeGM():
     ee2=[c13,c14]
 
     GM=[cs,math,ee1,ee2]
-    print
-    print("////////////////////////////")
-    print("////////////////////////////")
-    print("////////////////////////////")
-    print
     return GM
 
 def isValid(arrOfCourses):
