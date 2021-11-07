@@ -119,7 +119,7 @@ def makeGM():
     c11.setAll("EE2169"	,	"TBA"	,	-1	,	730	,	1020	,	['R']	,	True	,	"ONLINE"	,	28762)
     c11.display()
     c12 = Course()
-    c12.setAll("EE2169"	,	"TBA"	,	-1	,	1030	,	0120	,	['T']	,	True	,	"ONLINE"	,	25554)
+    c12.setAll("EE2169"	,	"TBA"	,	-1	,	1030	,	1420	,	['T']	,	True	,	"ONLINE"	,	25554)
     c12.display()
     c13 = Course()
     ee1=[c11,c12]
